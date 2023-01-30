@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB80BC82298823E900035D19 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB80BC81298823E900035D19 /* MainViewController.swift */; };
+		AB80BC84298823FD00035D19 /* MainViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB80BC83298823FD00035D19 /* MainViewController+Utils.swift */; };
 		ABD89BDC2980143200CDDD2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD89BDB2980143200CDDD2C /* AppDelegate.swift */; };
 		ABD89BE02980143200CDDD2C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD89BDF2980143200CDDD2C /* LoginViewController.swift */; };
 		ABD89BE52980143400CDDD2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABD89BE42980143400CDDD2C /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB80BC81298823E900035D19 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		AB80BC83298823FD00035D19 /* MainViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+Utils.swift"; sourceTree = "<group>"; };
 		ABD89BD82980143200CDDD2C /* Banker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABD89BDB2980143200CDDD2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABD89BDF2980143200CDDD2C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +71,7 @@
 				ABD89BF3298141A000CDDD2C /* Onboarding */,
 				ABD89C622981B83100CDDD2C /* Utils */,
 				ABD89BEF29801BFD00CDDD2C /* Files */,
+				AB80BC81298823E900035D19 /* MainViewController.swift */,
 			);
 			path = Banker;
 			sourceTree = "<group>";
@@ -104,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				ABD89C632981B83E00CDDD2C /* LocalState.swift */,
+				AB80BC83298823FD00035D19 /* MainViewController+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -185,6 +191,8 @@
 				ABD89BF729815A2100CDDD2C /* OnboardingViewController.swift in Sources */,
 				ABD89BDC2980143200CDDD2C /* AppDelegate.swift in Sources */,
 				ABD89BF5298141B600CDDD2C /* OnboardingContainerViewController.swift in Sources */,
+				AB80BC82298823E900035D19 /* MainViewController.swift in Sources */,
+				AB80BC84298823FD00035D19 /* MainViewController+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
