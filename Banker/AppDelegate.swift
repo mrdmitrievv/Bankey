@@ -51,6 +51,7 @@ extension AppDelegate: OnboardingContainerViewControllerDelegate {
 extension AppDelegate: LogoutDelegate {
     func didLogOut() {
         setRootViewController(loginViewController)
+//        LocalState.hasOnboarded = false
     }
 }
 
