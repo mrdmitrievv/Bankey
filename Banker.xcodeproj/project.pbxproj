@@ -47,7 +47,6 @@
 			isa = PBXGroup;
 			children = (
 				ABD89BDA2980143200CDDD2C /* Banker */,
-				ABD89BEF29801BFD00CDDD2C /* Files */,
 				ABD89BD92980143200CDDD2C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,10 +62,11 @@
 		ABD89BDA2980143200CDDD2C /* Banker */ = {
 			isa = PBXGroup;
 			children = (
-				ABD89C622981B83100CDDD2C /* Utils */,
-				ABD89BF3298141A000CDDD2C /* Onboarding */,
-				ABD89BF029801C1400CDDD2C /* Login */,
 				ABD89BDB2980143200CDDD2C /* AppDelegate.swift */,
+				ABD89BF029801C1400CDDD2C /* Login */,
+				ABD89BF3298141A000CDDD2C /* Onboarding */,
+				ABD89C622981B83100CDDD2C /* Utils */,
+				ABD89BEF29801BFD00CDDD2C /* Files */,
 			);
 			path = Banker;
 			sourceTree = "<group>";
@@ -79,7 +79,6 @@
 				ABD89BE92980143400CDDD2C /* Info.plist */,
 			);
 			name = Files;
-			path = Banker;
 			sourceTree = "<group>";
 		};
 		ABD89BF029801C1400CDDD2C /* Login */ = {
