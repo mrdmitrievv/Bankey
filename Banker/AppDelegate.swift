@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let loginViewController = LoginViewController()
     let onboardingContainerViewController = OnboardingContainerViewController()
-    let dummyViewController = DummyViewController()
     let mainViewController = MainViewController()
     let accountSummaryViewController = AccountSummaryViewController()
     
@@ -27,10 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
         loginViewController.delegate = self
         onboardingContainerViewController.delegate = self
-        dummyViewController.logOutDelegate = self
         
-//        window?.rootViewController = mainViewController
-        window?.rootViewController = accountSummaryViewController
+        let vc = mainViewController
+        vc.setStatusBar()
+        
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().backgroundColor = appColor
+        
+        window?.rootViewController = vc
         
         return true
     }
@@ -39,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: LoginViewControllerDelegate {
     func didLogin() {
         if LocalState.hasOnboarded {
-            setRootViewController(dummyViewController)
+            setRootViewController(mainViewController)
         } else {
             setRootViewController(onboardingContainerViewController)
         }
@@ -48,7 +51,7 @@ extension AppDelegate: LoginViewControllerDelegate {
 
 extension AppDelegate: OnboardingContainerViewControllerDelegate {
     func didFinishOnboarding() {
-        setRootViewController(dummyViewController)
+        setRootViewController(mainViewController)
         LocalState.hasOnboarded = true
     }
 }
@@ -56,7 +59,6 @@ extension AppDelegate: OnboardingContainerViewControllerDelegate {
 extension AppDelegate: LogoutDelegate {
     func didLogOut() {
         setRootViewController(loginViewController)
-//        LocalState.hasOnboarded = false
     }
 }
 
