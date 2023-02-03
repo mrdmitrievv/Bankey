@@ -25,7 +25,7 @@ struct CurrencyFormatter {
     }
     
     // Converts 929466 > 929,466
-    private func convertDollar(_ dollarPart: Double) -> String {
+    func convertDollar(_ dollarPart: Double) -> String {
         let dollarsWithDecimal = dollarsFormatted(dollarPart) // "929,466.00"
         let formatter = NumberFormatter()
         let decimalSeparator = formatter.decimalSeparator! // "."
@@ -35,7 +35,7 @@ struct CurrencyFormatter {
     }
     
     // Convert 0.23 > 23
-    private func convertCents(_ centPart: Double) -> String {
+    func convertCents(_ centPart: Double) -> String {
         let cents: String
         if centPart == 0 {
             cents = "00"
