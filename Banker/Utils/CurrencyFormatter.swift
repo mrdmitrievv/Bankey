@@ -25,17 +25,19 @@ struct CurrencyFormatter {
     }
     
     // Converts 929466 > 929,466
-    func convertDollar(_ dollarPart: Double) -> String {
+    private func convertDollar(_ dollarPart: Double) -> String {
         let dollarsWithDecimal = dollarsFormatted(dollarPart) // "929,466.00"
         let formatter = NumberFormatter()
         let decimalSeparator = formatter.decimalSeparator! // "."
-        let dollarComponents = dollarsWithDecimal.components(separatedBy: decimalSeparator) // "929,466" "00"
-        let dollars = dollarComponents.first! // "929,466"
+        let dollarComponents = dollarsWithDecimal.components(separatedBy: decimalSeparator) // "$929,466" "00"
+        var dollars = dollarComponents.first! // "$929,466"
+        dollars.removeFirst()
+        
         return dollars
     }
     
     // Convert 0.23 > 23
-    func convertCents(_ centPart: Double) -> String {
+    private func convertCents(_ centPart: Double) -> String {
         let cents: String
         if centPart == 0 {
             cents = "00"

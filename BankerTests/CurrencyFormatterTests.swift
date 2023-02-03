@@ -25,8 +25,14 @@ class CurrencyFormatterTests: XCTestCase {
         XCTAssertEqual(result.1, "23")
     }
     
-    func testConvertDollar() throws {
-        let result = currencyFormatter.convertDollar(943560)
-        XCTAssertEqual(result, "943,560")
+    func testDollarsFormatted() throws {
+        let result = currencyFormatter.dollarsFormatted(943560.23)
+        XCTAssertEqual(result, "$943,560.23")
     }
+            
+    func testZeroDollarsFormatted() throws {
+        let result = currencyFormatter.dollarsFormatted(0)
+        XCTAssertEqual(result, "$0.00")
+    }
+    
 }
