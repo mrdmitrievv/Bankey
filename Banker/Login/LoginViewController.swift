@@ -23,6 +23,13 @@ class LoginViewController: UIViewController {
     let signInButton = UIButton(type: .system)
     let errorLabel = UILabel()
     
+    // animation
+    let offScreenEdgeConstraint: CGFloat = -1000
+    let onScreenEdgeConstraint: CGFloat = 16
+    
+    var titleLeadingConstraint: NSLayoutConstraint?
+    var subtitleLeadingConstraint: NSLayoutConstraint?
+    
     weak var delegate: LoginViewControllerDelegate?
     
     var username: String? {
@@ -38,6 +45,11 @@ class LoginViewController: UIViewController {
         
         style()
         layout()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animate()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -125,15 +137,19 @@ extension LoginViewController {
         
         NSLayoutConstraint.activate([
             subtitleLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 3),
-            titleLabel.leadingAnchor.constraint(equalTo: subtitleLabel.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: subtitleLabel.trailingAnchor)
+            titleLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor),
         ])
+        
+        titleLeadingConstraint = titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: offScreenEdgeConstraint)
+        titleLeadingConstraint?.isActive = true
         
         NSLayoutConstraint.activate([
             loginView.topAnchor.constraint(equalToSystemSpacingBelow: subtitleLabel.bottomAnchor, multiplier: 3),
-            subtitleLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
             subtitleLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor)
         ])
+        
+        subtitleLeadingConstraint = subtitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: offScreenEdgeConstraint)
+        subtitleLeadingConstraint?.isActive = true
         
         NSLayoutConstraint.activate([
             loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -152,6 +168,18 @@ extension LoginViewController {
             errorLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
             errorLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor)
         ])
+    }
+}
+
+extension LoginViewController {
+    private func animate() {
+        let animator = UIViewPropertyAnimator(duration: 0.75, curve: .easeInOut) {
+            self.titleLeadingConstraint?.constant = self.onScreenEdgeConstraint
+            self.subtitleLeadingConstraint?.constant = self.onScreenEdgeConstraint
+            self.view.layoutIfNeeded()
+        }
+        
+        animator.startAnimation()
     }
 }
 
