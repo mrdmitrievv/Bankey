@@ -136,7 +136,7 @@ extension LoginViewController {
         view.addSubview(errorLabel)
         
         NSLayoutConstraint.activate([
-            subtitleLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 3),
+            loginView.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 10),
             titleLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor),
         ])
         
@@ -173,13 +173,18 @@ extension LoginViewController {
 
 extension LoginViewController {
     private func animate() {
-        let animator = UIViewPropertyAnimator(duration: 0.75, curve: .easeInOut) {
+        let animator1 = UIViewPropertyAnimator(duration: 1, curve: .easeInOut) {
             self.titleLeadingConstraint?.constant = self.onScreenEdgeConstraint
+            self.view.layoutIfNeeded()
+        }
+        
+        let animator2 = UIViewPropertyAnimator(duration: 1, curve: .easeInOut) {
             self.subtitleLeadingConstraint?.constant = self.onScreenEdgeConstraint
             self.view.layoutIfNeeded()
         }
         
-        animator.startAnimation()
+        animator1.startAnimation()
+        animator2.startAnimation(afterDelay: 0.25)
     }
 }
 
