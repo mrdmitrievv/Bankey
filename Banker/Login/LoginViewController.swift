@@ -90,6 +90,17 @@ extension LoginViewController {
     private func showFailure(withMessage message: String) {
         errorLabel.text = message
         errorLabel.isHidden = false
+        shakeSignInButton()
+    }
+    
+    private func shakeSignInButton() {
+        let animation = CAKeyframeAnimation()
+        animation.keyPath = "position.x"
+        animation.values = [0, 10, -10, 10, 0]
+        animation.keyTimes = [0, 0.16, 0.5, 0.83, 1]
+        
+        animation.isAdditive = true
+        signInButton.layer.add(animation, forKey: "shake")
     }
 }
 
