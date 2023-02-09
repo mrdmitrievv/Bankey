@@ -72,12 +72,12 @@ extension LoginViewController {
             return
         }
         
-        if username.isEmpty || password.isEmpty {
-            showFailure(withMessage: "Username / password can not be blank")
-            return
-        }
+//        if username.isEmpty || password.isEmpty {
+//            showFailure(withMessage: "Username / password can not be blank")
+//            return
+//        }
         
-        if username == "Q" && password == "1" {
+        if username == "" && password == "" {
             signInButton.configuration?.showsActivityIndicator = true
             delegate?.didLogin()
             loginView.clearTextField()
